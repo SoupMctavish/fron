@@ -1,0 +1,96 @@
+<app-ribbon></app-ribbon>
+<div class="container">
+
+    <section class="items-containter">
+
+        <article class="item" *ngFor="let i of items">
+            <div>
+                <img src="https://back1a.herokuapp.com/{{i.g_logo}}" alt="">
+                <p>{{i.id_game}}</p>
+                <h4>{{i.g_name}} - {{i.g_description}}</h4>
+                <p>{{i.g_price}}</p>
+            </div>
+        </article>
+    </section>
+    <div class="container">
+        <article class="item">
+            <label class="inputs" for="name">Name: </label>
+            <input class="inputs" id="name" type="text" [(ngModel)]="uName">
+            <label class="inputs" for="description">Description: </label>
+            <input class="inputs" id="description" type="text" [(ngModel)]="uDescription">
+            <label class="inputs" for="price">Price: </label>
+            <input class="inputs" id="price" type="text" [(ngModel)]="uPrice">
+            <label for="file">Choose File</label>
+            <input type="file"
+            id="file"
+            (change)="handleFileInput($event)">
+            <button class="btn btn-success" (click)="uploadFileToActivity()">Add new Item</button>
+            <p *ngIf="successfulNew">Item created successfully!</p>
+        </article>
+        <article class="item">
+            <label class="inputs" for="id">ID to delete: </label>
+            <input class="inputs" id="id" type="text" [(ngModel)]="uId">
+            <button class="btn btn-success" (click)="deleteItem()">Delete Item</button>
+            <p *ngIf="successfulDelete">Item deleted successfully!</p>
+        </article>
+        <article class="item">
+            <label class="inputs" for="idupd">ID: </label>
+            <input class="inputs" id="idupd" type="text" [(ngModel)]="updId">
+            <label class="inputs" for="nameupd">Name: </label>
+            <input class="inputs" id="nameupd" type="text" [(ngModel)]="updName">
+            <label class="inputs" for="descriptionupd">Description: </label>
+            <input class="inputs" id="descriptionupd" type="text" [(ngModel)]="updDescription">
+            <label class="inputs" for="priceupd">Price: </label>
+            <input class="inputs" id="priceupd" type="text" [(ngModel)]="updPrice">
+            <button class="btn btn-success" (click)="updateItem()">Update Item</button>
+            <p *ngIf="successfulUpd">Item updated successfully!</p>
+        </article>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row featured-boxes login">
+                <div class="col-sm-12">
+                    <div class="featured-box featured-box-secundary default info-content">
+                        <div class="box-content">
+                            <h4>I'm a Returning Customer</h4>
+                            <form action="" id="" method="post">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>Username or E-mail Address</label>
+                                            <input type="text" value="" class="form-control input-lg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <a class="pull-right" href="#">(Lost Password?)</a>
+                                            <label>Password</label>
+                                            <input type="password" value="" class="form-control input-lg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span class="remember-box checkbox">
+                                            <label for="rememberme">
+                                                <input type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                            </label>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="submit" value="Login" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
